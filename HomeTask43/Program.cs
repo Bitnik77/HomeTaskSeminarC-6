@@ -11,11 +11,16 @@ int b2 = int.Parse(Console.ReadLine()!);
 Console.Write("Введите значение k2 для уравнения прямой (y = k2 * x + b2): ");
 int k2 = int.Parse(Console.ReadLine()!);
 
-if (k1 == k2 && b1 == b2) Console.WriteLine("Прямые совпадают"); // Проверка прямых на совпадение
-else if (k1 == k2) Console.WriteLine("Прямые параллельны, точки пересечения нет");// Проверка прямых на параллельность
-else
+void PointIntersection(int b1, int k1, int b2, int k2)
 {
-    int x = (b1 - b2) / (k2 - k1);
-    int y = (k2 * b1 - k2 * b2) / (k2 - k1) + b2;
-    Console.WriteLine($"Точка пересечения прямых будет с координатами ({x}, {y})");
+    if (k1 == k2 && b1 == b2) Console.WriteLine("Прямые совпадают"); // Проверка прямых на совпадение
+    else if (k1 == k2) Console.WriteLine("Прямые параллельны, точки пересечения нет");// Проверка прямых на параллельность
+    else
+    {
+        int x = (b1 - b2) / (k2 - k1);
+        int y = (k2 * b1 - k2 * b2) / (k2 - k1) + b2;
+        Console.WriteLine($"Точка пересечения прямых будет с координатами ({x}, {y})");
+    }
 }
+
+PointIntersection(b1, k1, b2, k2);
